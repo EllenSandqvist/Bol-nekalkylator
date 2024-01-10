@@ -4,7 +4,7 @@ const interestInput = document.getElementById('interest') as HTMLInputElement;
 const paybackInput = document.getElementById('payback') as HTMLInputElement;
 const paymentPlanTable = document.querySelector('.amort-schedule') as HTMLTableElement;
 
-const calcButton = document.querySelector('button') as HTMLButtonElement;
+const calcButton = document.querySelector('.calc-button') as HTMLButtonElement;
 
 type Loan = {
     loanAmount: number,
@@ -164,3 +164,4 @@ function displayTotalPayments(cost: number, months: number) {
     const totalPayments = (cost * months);
     totalPay.textContent = totalPayments.toFixed(2) + " kr";
 }
+

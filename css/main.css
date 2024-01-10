@@ -59,7 +59,7 @@ main {
 
 /* --- Section for User Input --- */
 .mortgage {
-    width: 30%;
+    width: 35em;
     border: 3px solid;
     padding: 1em;
 }
@@ -76,7 +76,7 @@ main {
 
 /* --- Mortage Results section --- */
 .payments {
-    width: 30%;
+    width: 35em;
     border: 3px solid rgb(177, 73, 73);
     padding: 1.5em 1em;
     margin-bottom: 2em;

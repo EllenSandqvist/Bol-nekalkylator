@@ -4,7 +4,7 @@ const loanInput = document.getElementById('loan-input');
 const interestInput = document.getElementById('interest');
 const paybackInput = document.getElementById('payback');
 const paymentPlanTable = document.querySelector('.amort-schedule');
-const calcButton = document.querySelector('button');
+const calcButton = document.querySelector('.calc-button');
 //eventlistener on calculate button
 calcButton.addEventListener('click', checkInput);
 //--------------------------------------------------
