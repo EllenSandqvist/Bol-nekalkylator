@@ -11,10 +11,11 @@ calcButton.addEventListener('click', checkInput);
 // FUNCTION check user input
 //--------------------------------------------------
 function checkInput() {
+    //if user input for loan amount or payback years is a decimal number, it will be rounded to an integer
     const userInput = {
-        loanAmount: parseInt(loanInput.value),
+        loanAmount: Math.round(parseFloat(loanInput.value)),
         yearlyInterest: parseFloat(interestInput.value),
-        paybackYears: parseInt(paybackInput.value)
+        paybackYears: Math.round(parseFloat(paybackInput.value))
     };
     if (isNaN(userInput.loanAmount) || userInput.loanAmount < 100000 || userInput.loanAmount > 10000000) {
         alert("Lånebeloppet ska vara ett numeriskt värde mellan 100 000 och 10 000 000.");
@@ -39,7 +40,9 @@ function calcMonthlyCost(loan) {
     //Calculate number of months to pay 
     const paybackMonths = loan.paybackYears * 12;
     //Calculate monthly cost
-    const monthlyCost = loan.loanAmount * (monthlyInterest * Math.pow(1 + monthlyInterest, paybackMonths)) / (Math.pow(1 + monthlyInterest, paybackMonths) - 1);
+    const numerator = loan.loanAmount * (monthlyInterest * Math.pow(1 + monthlyInterest, paybackMonths));
+    const denominator = (Math.pow(1 + monthlyInterest, paybackMonths) - 1);
+    const monthlyCost = numerator / denominator;
     console.log(monthlyInterest, paybackMonths, monthlyCost);
     //function calls to display monthly cost and make a payment plan
     displayMonthlyCost(monthlyCost);

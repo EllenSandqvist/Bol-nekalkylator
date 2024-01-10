@@ -20,10 +20,11 @@ calcButton.addEventListener('click', checkInput);
 //--------------------------------------------------
 function checkInput(): void {
 
+    //if user input for loan amount or payback years is a decimal number, it will be rounded to an integer
     const userInput: Loan = {
-        loanAmount: parseInt(loanInput.value),
+        loanAmount: Math.round(parseFloat(loanInput.value)),
         yearlyInterest: parseFloat(interestInput.value),
-        paybackYears: parseInt(paybackInput.value)
+        paybackYears: Math.round(parseFloat(paybackInput.value))
     }
 
     if(isNaN(userInput.loanAmount) || userInput.loanAmount < 100_000 || userInput.loanAmount > 10_000_000){
@@ -51,7 +52,9 @@ function calcMonthlyCost(loan: Loan): void {
     const paybackMonths = loan.paybackYears * 12;
 
     //Calculate monthly cost
-    const monthlyCost = loan.loanAmount * (monthlyInterest * Math.pow(1 + monthlyInterest, paybackMonths)) / (Math.pow(1 + monthlyInterest, paybackMonths) -1);
+    const numerator = loan.loanAmount * (monthlyInterest * Math.pow(1 + monthlyInterest, paybackMonths));
+    const denominator = (Math.pow(1 + monthlyInterest, paybackMonths) -1);
+    const monthlyCost =  numerator/denominator; 
     
     console.log(monthlyInterest, paybackMonths, monthlyCost);
 
