@@ -6,6 +6,7 @@ const paymentPlanTable = document.querySelector('.amort-schedule') as HTMLTableE
 
 const calcButton = document.querySelector('.calc-button') as HTMLButtonElement;
 
+//type for loan object
 type Loan = {
     loanAmount: number,
     yearlyInterest: number,
@@ -27,6 +28,7 @@ function checkInput(): void {
         paybackYears: Math.round(parseFloat(paybackInput.value))
     }
 
+    //if statements to check that user inputs have valid values
     if(isNaN(userInput.loanAmount) || userInput.loanAmount < 100_000 || userInput.loanAmount > 10_000_000){
         alert("Lånebeloppet ska vara ett numeriskt värde mellan 100 000 och 10 000 000.");
         return;
@@ -37,6 +39,8 @@ function checkInput(): void {
         alert("Lånetiden ska vara ett numeriskt värde mellan 1 och 50");
         return;
     }
+
+    //if user inputs are ok call function to calculate monthly cost
     calcMonthlyCost(userInput);
 }
 
@@ -56,7 +60,9 @@ function calcMonthlyCost(loan: Loan): void {
     const denominator = (Math.pow(1 + monthlyInterest, paybackMonths) -1);
     const monthlyCost =  numerator/denominator; 
     
-    console.log(monthlyInterest, paybackMonths, monthlyCost);
+    console.log("månatlig räntesats= ", monthlyInterest);
+    console.log("månadsbetalningar= ", paybackMonths); 
+    console.log("månadskostnad = ", monthlyCost);
 
     //function calls to display monthly cost and make a payment plan
     displayMonthlyCost(monthlyCost);

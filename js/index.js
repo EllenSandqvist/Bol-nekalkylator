@@ -17,6 +17,7 @@ function checkInput() {
         yearlyInterest: parseFloat(interestInput.value),
         paybackYears: Math.round(parseFloat(paybackInput.value))
     };
+    //if statements to check that user inputs have valid values
     if (isNaN(userInput.loanAmount) || userInput.loanAmount < 100000 || userInput.loanAmount > 10000000) {
         alert("Lånebeloppet ska vara ett numeriskt värde mellan 100 000 och 10 000 000.");
         return;
@@ -29,6 +30,7 @@ function checkInput() {
         alert("Lånetiden ska vara ett numeriskt värde mellan 1 och 50");
         return;
     }
+    //if user inputs are ok call function to calculate monthly cost
     calcMonthlyCost(userInput);
 }
 //--------------------------------------------------
@@ -43,7 +45,9 @@ function calcMonthlyCost(loan) {
     const numerator = loan.loanAmount * (monthlyInterest * Math.pow(1 + monthlyInterest, paybackMonths));
     const denominator = (Math.pow(1 + monthlyInterest, paybackMonths) - 1);
     const monthlyCost = numerator / denominator;
-    console.log(monthlyInterest, paybackMonths, monthlyCost);
+    console.log("månatlig räntesats= ", monthlyInterest);
+    console.log("månadsbetalningar= ", paybackMonths);
+    console.log("månadskostnad = ", monthlyCost);
     //function calls to display monthly cost and make a payment plan
     displayMonthlyCost(monthlyCost);
     makePaymentPlan(loan.loanAmount, monthlyCost, monthlyInterest, paybackMonths);
