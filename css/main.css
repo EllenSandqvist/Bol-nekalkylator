@@ -1,0 +1,104 @@
+::before,
+::after,
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 8vh;
+    padding: 3em;
+    background-color: #d9ece1;
+    text-align: center;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    letter-spacing: 0.05rem;
+}
+
+h2 {
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    margin-top: 1em;
+}
+
+p {
+    line-height: 1.2;
+    font-size: 1rem;
+}
+
+main {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+/* --- Section for User Input --- */
+.mortgage {
+    border: 3px solid;
+    padding: 1em;
+}
+
+.mortage-input {
+    border-spacing: 1em 0.2em;
+    background-color: beige;
+    margin: 1.5em 0;
+}
+
+.right-aligned {
+    text-align: right;
+}
+
+/* --- Mortage Results section --- */
+.payments {
+    border: 3px solid rgb(177, 73, 73);
+    padding: 1.5em 1em;
+    margin-bottom: 2em;
+    position: relative;
+}
+
+.result-square {
+    background-color: #608d2c;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.7em 0.5em;
+}
+
+.tr1 {
+    text-align: left;
+}
+
+.main-result {
+    margin-top: 2.5em;
+    background-color: beige;
+    border-spacing: 1em 0.3em;
+    width: 90%;
+}
+
+/* --- Section for Payment Plan --- */
+.amort-schedule {
+    border-spacing: 0.5em;
+    text-align: center;
+}
+
+.amort-headings {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #fff;
+    text-decoration: underline;
+}

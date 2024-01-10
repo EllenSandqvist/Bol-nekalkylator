@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/index.js" defer></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Bolånekalkylator - Räkna ut kostnaden för ditt drömboende!</title>
+</head>
+<body>
+    <header>
+        <h1>BolåneKalkylator</h1>
+    </header>
+    <main>
+        <!-- Section for user input -->
+        <section class="mortgage">
+            <h2>Låneuppgifter</h2>
+            <p>Skriv in dina låneuppgifter enligt nedan.</p>
+            <ul>
+                <li>Giltiga lånebelopp är 100 000 - 10 miljoner kr.</li>
+                <li>Giltig räntesats är 0 - 50%.</li>
+                <li>Längsta lånetid är 50 år.</li>
+            </ul>
+                
+            <table class="mortage-input">          
+                <tr class="tr1">
+                    <th>Låneinformation</th>
+                    <th class="right-aligned">Värden</th>
+                </tr> 
+                <tr>
+                    <td>Lånebelopp *</td>
+                    <td><input id="loan-input" class="right-aligned" type="number" required> kr</td>
+                </tr>
+                <tr>
+                    <td>Räntesats *</td>
+                    <td><input type="number" class="right-aligned" id="interest" min="0" title="Decimaltal kan skrivas med punkt eller kommatecken." required> %</td>
+                </tr>
+                <tr>
+                    <td>Lånetid *</td>
+                    <td><input id="payback" class="right-aligned" type="number" required> år</td>
+                </tr>
+            </table>
+            <button>Beräkna</button>
+        </section>
+        
+        <!-- Mortage Result section -->
+        <section class="payments">
+            <h2>Månatlig Lånebetalning <span class="result-square">X kr</span></h2>
+
+            <!-- Main results  -->
+            <table class="main-result">          
+                <tr>
+                    <th class="tr1">Nyckelstatistik</th>
+                    <th class="right-aligned">Totalsummor</th>
+                </tr> 
+                <tr class="payments-row1">
+                    <td>Månatlig lånebetalning</td>
+                    <td id="monthly" class="right-aligned">kr</td>
+                </tr>
+                <tr>
+                    <td>Totala räntekostnaden</td>
+                    <td id="total-rate" class="right-aligned">kr</td>
+                </tr>
+                <tr>
+                    <td>Lånebetalning totalt</td>
+                    <td id="total-pay" class="right-aligned">kr</td>
+                </tr>
+            </table>
+            <br>
+            <hr>
+
+            <!-- Payment plan -->
+            <h3>Avbetalningsplan</h3>
+            <table class="amort-schedule"></table>
+        </section>
+    </main>
+</body>
+</html>
