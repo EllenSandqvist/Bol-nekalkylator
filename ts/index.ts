@@ -30,11 +30,11 @@ function checkInput(): void {
     if(isNaN(userInput.loanAmount) || userInput.loanAmount < 100_000 || userInput.loanAmount > 10_000_000){
         alert("Lånebeloppet ska vara ett numeriskt värde mellan 100 000 och 10 000 000.");
         return;
-    } else if (isNaN(userInput.yearlyInterest) || userInput.yearlyInterest < 0 || userInput.yearlyInterest > 50){
-        alert("Räntan ska vara ett numeriskt värde mellan 0 och 100");
+    } else if (isNaN(userInput.yearlyInterest) || userInput.yearlyInterest < 0.1 || userInput.yearlyInterest > 50){
+        alert("Räntan ska vara ett numeriskt värde mellan 0.1 och 50");
         return;
-    } else if (isNaN(userInput.paybackYears) || userInput.paybackYears < 0 || userInput.paybackYears > 50){
-        alert("Lånetiden ska vara ett numeriskt värde mellan 0 och 50");
+    } else if (isNaN(userInput.paybackYears) || userInput.paybackYears < 1 || userInput.paybackYears > 50){
+        alert("Lånetiden ska vara ett numeriskt värde mellan 1 och 50");
         return;
     }
     calcMonthlyCost(userInput);
